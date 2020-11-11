@@ -18,9 +18,9 @@ const Header = (props) => {
   return (
     <AppBar>
       <Toolbar>
-        <Typography variant="h6">Mars Rover Photos</Typography>
+        <Typography variant='h5'>Mars Rover Photos</Typography>
         <IconButton>
-          <SettingsIcon 
+          <SettingsIcon
             style={{color: "white"}}
             onClick={openModal}
           />

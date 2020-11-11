@@ -9,7 +9,8 @@ import {
   Select,
   Grid,
   TextField,
-  Button
+  Button,
+  Typography
 } from '@material-ui/core';
 import apiKeys from '../constants/apiKeys';
 
@@ -25,6 +26,9 @@ const useStyles = makeStyles((theme) => ({
     padding: theme.spacing(2, 4, 3),
     outline: 'none'
   },
+  select: {
+    minWidth: '260px',
+  }
 }));
 
 const SettingsModal = (props) => {
@@ -55,13 +59,19 @@ const SettingsModal = (props) => {
       >
         <Fade in={isModalOpened}>
           <div className={classes.paper}>
-            <h2>Filter settings</h2>
+            <Typography
+              variant='h5'
+              align='center'
+              style={{marginBottom: '20px'}}
+            >
+              Filter settings
+            </Typography>
             <Grid container
               direction={'column'}
               spacing={2}
             >
               <Grid item>
-                <FormControl>
+                <FormControl className={classes.select}>
                   <InputLabel>Rover</InputLabel>
                   <Select
                     value={rover}
@@ -74,7 +84,7 @@ const SettingsModal = (props) => {
                 </FormControl>
               </Grid>
               <Grid item>
-                <FormControl>
+                <FormControl className={classes.select}>
                   <InputLabel>Camera</InputLabel>
                   <Select
                     value={camera}
@@ -86,8 +96,8 @@ const SettingsModal = (props) => {
                   </Select>
                 </FormControl>
               </Grid>
-              <Grid item>
-                <FormControl>
+              <Grid item >
+                <FormControl className={classes.select}>
                   <TextField
                     label={'Sol (Mars day)'}
                     onChange={(e)=>{setSol(e.target.value)}}
@@ -97,12 +107,13 @@ const SettingsModal = (props) => {
                   </TextField>
                 </FormControl>
               </Grid>
-              <Grid container item justify="flex-end">
-                <Grid item>
+              <Grid container item>
+                <Grid item xs={12} style={{marginTop: '10px'}}>
                   <Button
                     variant="contained"
                     color="primary"
                     onClick={saveFilter}
+                    fullWidth
                   >
                     Save
                   </Button>

@@ -39,7 +39,7 @@ const Photo = (props) => {
             alignItems='center'
             onClick={()=>setIsPhotoOpened(false)}
           >
-            <Grid item xs={10} sm={6} md={5}>
+            <Grid item xs={10} sm={6} md={5} style={{marginTop: '64px'}}>
               <Card>
                 <CardMedia
                   style={{paddingTop: '100%'}}

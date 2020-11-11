@@ -7,10 +7,10 @@ const SearchResult = (props) => {
   const { photos } = props;
 
   return (
-    <div style={{ padding: '20px 30px'}}>
-      <Grid container spacing={4} m={3}>
+    <div style={{ padding: '20px 5%'}}>
+      <Grid container spacing={3}>
         {photos.map(photo => (
-          <Grid item key={photo.id} xs={12} sm={4} md={2}>
+          <Grid item key={photo.id} xs={6} sm={3} md={2}>
             <Photo url={photo.img_src} />
           </Grid>
         ))}

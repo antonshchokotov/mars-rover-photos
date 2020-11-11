@@ -16,7 +16,7 @@ const Header = (props) => {
   const closeModal = () => { setIsModalOpened(false) };
 
   return (
-    <AppBar>
+    <AppBar style={{padding: '0 3%'}}>
       <Toolbar>
         <Typography variant='h5'>Mars Rover Photos</Typography>
         <IconButton>

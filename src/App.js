@@ -26,8 +26,8 @@ function App() {
     setIsLoading(true);
     const { rover, camera, sol } = newFilter;
     setFilter(newFilter);
+    const url = `https://api.nasa.gov/mars-photos/api/v1/rovers/${rover}/photos?sol=${sol}${camera === 'All' ? '' : '&camera='+camera}&page=1&api_key=DEMO_KEY`;
     setPage(1);
-    const url = `https://api.nasa.gov/mars-photos/api/v1/rovers/${rover}/photos?sol=${sol}${camera === 'All' ? '' : '&camera='+camera}&page=${page}&api_key=DEMO_KEY`;
     try {
       const { data: { photos: newPhotos } } = await Axios.get(url);
       setPhotos(newPhotos);
@@ -42,10 +42,10 @@ function App() {
   const loadMorePhotos = async () => {
     setIsLoading(true);
     const { rover, camera, sol } = filter;
-    setPage(page => page + 1);
-    const url = `https://api.nasa.gov/mars-photos/api/v1/rovers/${rover}/photos?sol=${sol}${camera === 'All' ? '' : '&camera='+camera}&page=${page}&api_key=DEMO_KEY`;
+    const url = `https://api.nasa.gov/mars-photos/api/v1/rovers/${rover}/photos?sol=${sol}${camera === 'All' ? '' : '&camera='+camera}&page=${page+1}&api_key=DEMO_KEY`;
     const { data: { photos: newPhotos } } = await Axios.get(url);
     setPhotos(photos => [...photos, ...newPhotos]);
+    setPage(page => page + 1);
     setIsLoading(false);
   };
 
